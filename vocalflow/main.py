@@ -444,8 +444,17 @@ class AudioProcessor:
             self.stream.start()
             self.is_running = True
             
-            device_info = sd.query_devices(self.config.device_id)
-            self.logger.info(f"Audio stream started: {device_info['name']}")
+            # Fixed device info logging
+            if self.config.device_id is not None:
+                device_info = sd.query_devices(self.config.device_id)
+                if isinstance(device_info, dict) and 'name' in device_info:
+                    device_name = device_info['name']
+                else:
+                    device_name = f"device {self.config.device_id}"
+            else:
+                device_name = "default device"
+            
+            self.logger.info(f"Audio stream started: {device_name}")
             
         except Exception as e:
             self.logger.error(f"Failed to start audio stream: {e}")
@@ -519,8 +528,7 @@ class TranscriptionEngine:
                 vad_filter=self.config.vad_filter,
                 temperature=self.config.temperature,
                 condition_on_previous_text=False,
-                no_speech_threshold=0.4,
-                logprob_threshold=-0.8
+                no_speech_threshold=0.4
             )
             
             results = []
