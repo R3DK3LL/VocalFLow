@@ -1,0 +1,721 @@
+command_categories:
+  browser_operations:
+    open_browser:
+      variations:
+      - just launch browser please
+      - quickly start the browser
+      - bring up browser
+      - hop on the internet
+      - start browser up
+      - please fire up browser
+      - please get on the internet
+      - quickly fire up browser
+      - get on the internet
+      - get browser happening
+      - initiate browser application
+      - could you open the browser
+      - quickly get browser going
+      - could you start the browser
+      - get browser running
+      - please bring browser up
+      - quickly get browser running
+      - start the browser
+      - pull up browser
+      - fire up browser
+      - just start the browser
+      - please open browser
+      - launch web browser
+      - just get browser going
+      - please start the browser
+      - just bring browser up
+      - please pull up browser
+      - quickly pull up browser
+      - fire up the browser mate
+      - quickly bring browser up
+      - just get browser running
+      - please boot up browser
+      - quickly open the browser
+      - open up browser
+      - online
+      - chrome
+      - fire up the browser
+      - just pull up browser
+      - internet
+      - could you boot up browser
+      - get on the web
+      - web
+      - please open the browser
+      - just fire up browser
+      - could you get browser running
+      - please get browser going
+      - boot up browser
+      - chuck open the browser
+      - could you fire up browser
+      - launch browser please
+      - just get on the internet
+      - just boot up browser
+      - browser
+      - could you pull up browser
+      - could you bring browser up
+      - open the browser
+      - get on the browser
+      - firefox
+      - quickly get on the internet
+      - bring browser up
+      - could you get on the internet
+      - browsing time
+      - please get browser running
+      - please launch browser please
+      - get me online
+      - get browser going
+      - quickly boot up browser
+      - just open the browser
+      - quickly launch browser please
+      - could you get browser going
+      - web time
+      - could you launch browser please
+      base_regex: (application|boot|bring|browser|browsing|chrome|chuck|could|fire|firefox|get|going|happening|hop|initiate|internet|just|launch|me|online|open|please|pull|quickly|running|start|time|up|web|you)
+      priority: high
+      confidence_threshold: 0.6
+    close_browser:
+      variations:
+      - shut browser down
+      - could you close browser out
+      - terminate browser session
+      - browser off
+      - could you finish with browser
+      - could you close the browser
+      - close browser
+      - just shut down browser
+      - quickly shut down browser
+      - could you kill the browser
+      - just shut browser
+      - close browser off
+      - close browser out
+      - please close browser out
+      - just close browser off
+      - finish with browser
+      - quickly close browser down
+      - could you end browser
+      - quickly close browser off
+      - please close the browser
+      - quickly shut browser
+      - could you close browser off
+      - shut down browser
+      - shut browser
+      - end browser
+      - quit browser
+      - just kill the browser
+      - close the browser
+      - quickly end browser
+      - just shut browser down
+      - quickly close the browser
+      - quickly shut browser down
+      - please kill the browser
+      - please shut browser
+      - just close the browser
+      - could you shut browser
+      - just finish with browser
+      - could you close browser down
+      - could you shut browser down
+      - quickly close browser out
+      - quickly kill the browser
+      - finish browser
+      - could you shut down browser
+      - just end browser
+      - quickly finish with browser
+      - please shut browser down
+      - close browser down
+      - please close browser down
+      - just close browser out
+      - kill the browser
+      - please finish with browser
+      - just close browser down
+      - please close browser off
+      - please end browser
+      - close browser application
+      - please shut down browser
+      base_regex: (application|browser|close|could|down|end|finish|just|kill|off|out|please|quickly|quit|session|shut|terminate|with|you)
+      priority: low
+      confidence_threshold: 0.8
+  file_operations:
+    save_file:
+      variations:
+      - just store this file
+      - could you store this
+      - just save it up
+      - keep this
+      - please save this file
+      - save it up
+      - quickly save this document
+      - put this away
+      - keep this file
+      - could you store this file
+      - file save
+      - quickly store this file
+      - save it
+      - save now
+      - emergency save
+      - quickly file save
+      - store this
+      - just store this
+      - please file this away
+      - save this thing
+      - please store this file
+      - please save it up
+      - save this quick
+      - please put this away
+      - please save this document
+      - quickly file this away
+      - just keep this file
+      - preserve this document
+      - quickly save this file
+      - ctrl s
+      - save
+      - could you file this away
+      - quickly put this away
+      - just save this file
+      - please keep this file
+      - chuck it in a file
+      - save this file
+      - put this in a file
+      - please file save
+      - please store this
+      - quick save
+      - just file this away
+      - could you file save
+      - save current document
+      - could you save it up
+      - quickly keep this file
+      - store this file
+      - could you put this away
+      - could you save this document
+      - file this
+      - could you save this file
+      - quickly store this
+      - just put this away
+      - just file save
+      - just save this document
+      - file this away
+      - could you keep this file
+      - save this document
+      - file it
+      - save this out
+      - quickly save it up
+      - keep it
+      base_regex: (away|chuck|could|ctrl|current|document|emergency|file|it|just|keep|now|out|please|preserve|put|quick|quickly|s|save|store|thing|this|up|you)
+      priority: high
+      confidence_threshold: 0.8
+    open_file:
+      variations:
+      - open this file up
+      - please open the file
+      - load this file
+      - open file
+      - please bring up file
+      - quickly bring up file
+      - could you get file open
+      - just pull up file
+      - get file open
+      - get this file
+      - quickly pull up file
+      - could you load file
+      - just bring up file
+      - quickly open file up
+      - bring up file
+      - could you open the file
+      - load
+      - please pull up file
+      - could you bring up file
+      - just get file going
+      - please get this file
+      - just load this file
+      - please load this file
+      - retrieve file
+      - please chuck open the file
+      - just get this file
+      - quickly open the file
+      - just chuck open the file
+      - pull up file
+      - just get file open
+      - please get file going
+      - could you pull up file
+      - quickly get file open
+      - could you open file up
+      - quickly load file
+      - could you load this file
+      - open file up
+      - could you get file going
+      - load document
+      - just open the file
+      - just load file
+      - could you chuck open the file
+      - chuck open the file
+      - please get file open
+      - quickly load this file
+      - load file
+      - quickly get file going
+      - file open
+      - get file going
+      - please open file up
+      - open the file
+      - quickly chuck open the file
+      - please load file
+      - quickly get this file
+      - access file
+      - could you get this file
+      - just open file up
+      base_regex: (access|bring|chuck|could|document|file|get|going|just|load|open|please|pull|quickly|retrieve|this|up|you)
+      priority: low
+      confidence_threshold: 0.6
+  text_operations:
+    select_all:
+      variations:
+      - mark complete text
+      - please mark all
+      - quickly choose everything
+      - select entire document
+      - just highlight all this stuff
+      - just mark all
+      - quickly select the whole thing
+      - quickly select the lot
+      - highlight all content
+      - select all text
+      - quickly mark all
+      - everything
+      - grab everything
+      - select the lot
+      - select all this stuff
+      - highlight all this
+      - could you select the whole thing
+      - select all
+      - quickly highlight everything
+      - could you choose everything
+      - just choose everything
+      - please select the whole thing
+      - select the whole lot
+      - please highlight all this stuff
+      - could you select everything
+      - could you choose all this
+      - just mark all text
+      - select the whole thing
+      - just select the whole thing
+      - mark all text
+      - just select all text
+      - could you mark all text
+      - quickly select everything
+      - select everything
+      - just select everything
+      - highlight everything
+      - quickly choose all this
+      - could you highlight all this stuff
+      - ctrl a
+      - all of it
+      - choose everything
+      - please choose everything
+      - quickly highlight all this stuff
+      - mark all
+      - please select everything
+      - just select the lot
+      - could you mark all
+      - please highlight everything
+      - choose all this
+      - just choose all this
+      - mark the lot
+      - please select all text
+      - could you select all text
+      - could you select the lot
+      - please mark all text
+      - select all this text
+      - quickly select all text
+      - quickly mark all text
+      - please select the lot
+      - could you highlight everything
+      - just highlight everything
+      - please choose all this
+      - highlight all this stuff
+      base_regex: (all|choose|complete|content|could|ctrl|document|entire|everything|grab|highlight|it|just|lot|mark|of|please|quickly|select|text|this|whole|you)
+      priority: high
+      confidence_threshold: 0.6
+    copy_text:
+      variations:
+      - copy the lot
+      - just copy the lot
+      - quickly copy the whole thing
+      - copy
+      - please duplicate this
+      - just copy all of it
+      - copy all this stuff
+      - please copy this text
+      - please copy all of it
+      - could you duplicate all this
+      - could you duplicate this
+      - copy this text
+      - just copy everything
+      - please copy the lot
+      - quickly copy all this
+      - copy all
+      - could you copy all this stuff
+      - please copy all this
+      - could you copy the lot
+      - could you duplicate this lot
+      - just copy the whole thing
+      - quickly copy everything
+      - please copy the whole thing
+      - quickly copy this text
+      - ctrl c
+      - just copy all this
+      - copy all this
+      - just duplicate this lot
+      - duplicate this
+      - duplicate all this
+      - could you copy all this
+      - could you copy this text
+      - quickly copy the lot
+      - quickly copy all of it
+      - duplicate this lot
+      - just copy this text
+      - could you copy everything
+      - could you copy all of it
+      - copy everything
+      - just duplicate all this
+      - quickly duplicate all this
+      - quickly duplicate this lot
+      - copy all of it
+      - just duplicate this
+      - quickly duplicate this
+      - please duplicate all this
+      - quickly copy all this stuff
+      - just copy all this stuff
+      - copy this
+      - copy the whole thing
+      - please copy all this stuff
+      - please duplicate this lot
+      - copy current selection
+      - could you copy the whole thing
+      - please copy everything
+      - duplicate selected text
+      base_regex: (all|c|copy|could|ctrl|current|duplicate|everything|just|lot|of|please|quickly|selected|selection|text|this|whole|you)
+      priority: high
+      confidence_threshold: 0.6
+    paste_text:
+      variations:
+      - quickly paste all this
+      - could you drop it here
+      - quickly put this here
+      - put this down
+      - could you paste it here
+      - put it here
+      - please drop it here
+      - quickly stick it here
+      - please paste this here
+      - just paste it here
+      - please paste this text
+      - please stick it here
+      - could you paste this text
+      - insert copied text
+      - please put this here
+      - paste here
+      - quickly chuck it here
+      - paste this text
+      - just chuck it here
+      - stick it here
+      - please paste it here
+      - could you put it here
+      - paste this here
+      - chuck it here
+      - just put this here
+      - quickly put it here
+      - just paste all this
+      - just paste this here
+      - paste
+      - just paste this text
+      - just paste it
+      - could you paste all this
+      - ctrl v
+      - please chuck it here
+      - quickly paste this text
+      - quickly drop it here
+      - could you paste it
+      - just drop it here
+      - apply clipboard content
+      - could you paste this here
+      - just stick it here
+      - just put it here
+      - put this here
+      - could you chuck it here
+      - paste it
+      - drop it here
+      - quickly paste this here
+      - please put it here
+      - could you stick it here
+      - quickly paste it
+      - could you put this here
+      - please paste it
+      - quickly paste it here
+      - please paste all this
+      - paste all this
+      - paste it here
+      base_regex: (all|apply|chuck|clipboard|content|copied|could|ctrl|down|drop|here|insert|it|just|paste|please|put|quickly|stick|text|this|v|you)
+      priority: low
+      confidence_threshold: 0.6
+  system_operations:
+    volume_control:
+      variations:
+      - please louder please
+      - please increase sound
+      - boost volume
+      - crank the volume
+      - make it louder
+      - could you crank it up
+      - just make it loud
+      - please crank it up
+      - just louder please
+      - crank up sound
+      - please pump up volume
+      - quickly pump up volume
+      - volume up
+      - quickly increase sound
+      - louder
+      - could you turn volume up
+      - quickly make it louder
+      - pump the volume
+      - turn up
+      - please turn volume up
+      - please turn it up
+      - quickly turn it up
+      - turn it up
+      - increase sound
+      - could you pump up volume
+      - volume higher
+      - turn volume up
+      - please make it louder
+      - could you make it louder
+      - could you turn it up
+      - please volume higher
+      - up
+      - just crank it up
+      - quickly crank it up
+      - could you volume higher
+      - pump it up
+      - make it loud
+      - crank it up
+      - louder please
+      - turn it up mate
+      - just increase sound
+      - raise volume setting
+      - pump up volume
+      - quickly louder please
+      - could you increase sound
+      - could you volume up
+      - quickly volume up
+      - just turn it up
+      - just volume higher
+      - just turn volume up
+      - could you louder please
+      - just volume up
+      - could you make it loud
+      - quickly make it loud
+      - increase audio level
+      - just pump up volume
+      - quickly turn volume up
+      - quickly volume higher
+      - just make it louder
+      - please make it loud
+      - please volume up
+      base_regex: (audio|boost|could|crank|higher|increase|it|just|level|loud|louder|make|please|pump|quickly|raise|setting|sound|turn|up|volume|you)
+      priority: medium
+      confidence_threshold: 0.6
+    screenshot:
+      variations:
+      - capture screen image
+      - could you capture screen
+      - screen cap
+      - just grab screen
+      - just capture the screen
+      - take picture of screen
+      - could you snap the screen
+      - just snap the screen
+      - grab screen
+      - grab a screenshot
+      - capture this screen
+      - take screen photograph
+      - quickly capture screen
+      - take a screenshot
+      - screenshot this
+      - just screen grab
+      - just take a screenshot
+      - snap
+      - capture
+      - please capture screen
+      - please take picture of screen
+      - could you screen grab
+      - quickly grab screen
+      - please snap the screen
+      - capture the screen
+      - quickly snap the screen
+      - quickly take picture of screen
+      - please capture the screen
+      - could you take picture of screen
+      - quickly take a screenshot
+      - just capture screen
+      - could you grab a screenshot
+      - please screen grab
+      - just grab a screenshot
+      - quickly grab a screenshot
+      - screen grab
+      - please screenshot this
+      - quickly capture the screen
+      - could you screenshot this
+      - screenshot
+      - just screenshot this
+      - quickly screen grab
+      - just take picture of screen
+      - could you capture the screen
+      - please grab a screenshot
+      - could you take a screenshot
+      - please grab screen
+      - snap the screen
+      - please take a screenshot
+      - capture screen
+      - quickly screenshot this
+      - could you grab screen
+      base_regex: (cap|capture|could|grab|image|just|of|photograph|picture|please|quickly|screen|screenshot|snap|take|this|you)
+      priority: medium
+      confidence_threshold: 0.6
+  navigation_operations:
+    scroll_operations:
+      variations:
+      - please page down
+      - could you scroll lower
+      - please go down page
+      - quickly move down page
+      - could you move down page
+      - just go down
+      - quickly go down
+      - quickly scroll lower
+      - just move down
+      - please go down
+      - please scroll lower
+      - go down
+      - down
+      - just go down page
+      - just move down page
+      - please move down page
+      - could you page down
+      - scroll down
+      - move down
+      - just page down
+      - page down
+      - scroll
+      - navigate downward
+      - just scroll lower
+      - go down page
+      - quickly scroll down
+      - please scroll down
+      - could you move down
+      - quickly page down
+      - please move down
+      - could you go down page
+      - quickly move down
+      - could you go down
+      - advance page content
+      - just scroll down
+      - quickly go down page
+      - scroll lower
+      - could you scroll down
+      - move down page
+      base_regex: (advance|content|could|down|downward|go|just|lower|move|navigate|page|please|quickly|scroll|you)
+      priority: medium
+      confidence_threshold: 0.6
+    go_back:
+      variations:
+      - go backwards
+      - navigate backward
+      - please previous
+      - quickly go back
+      - previous
+      - please back page
+      - please previous page
+      - quickly previous page
+      - previous page
+      - back page
+      - could you previous
+      - just back page
+      - just previous page
+      - go back
+      - back
+      - could you previous page
+      - could you go back
+      - just go backwards
+      - just back up
+      - could you back up
+      - could you go backwards
+      - please go backwards
+      - just previous
+      - quickly back page
+      - please back up
+      - just go back
+      - please go back
+      - quickly go backwards
+      - quickly previous
+      - back up
+      - quickly back up
+      - return to previous page
+      - could you back page
+      base_regex: (back|backward|backwards|could|go|just|navigate|page|please|previous|quickly|return|up|you)
+      priority: low
+      confidence_threshold: 0.6
+regex_patterns:
+  browser_operations: (open|launch|start|fire|pull|bring|chuck|get).*browser|browser|firefox|chrome
+  file_operations: (save|store|keep|file|put).*(?:file|document|this)|ctrl\s*s
+  text_operations: (select|copy|paste|highlight|mark|grab|choose).*(?:all|everything|text|this|here)
+  system_operations: (volume|sound|audio).*(?:up|down|higher|lower)|screenshot|capture|snap.*screen
+  navigation_operations: (scroll|page|go|move).*(?:up|down|back|forward)|back|previous|next
+speech_variations:
+  polite_prefixes:
+  - please
+  - could you
+  - can you
+  - would you
+  casual_prefixes:
+  - just
+  - quickly
+  - real quick
+  - go ahead and
+  uk_patterns:
+  - rather
+  - quite
+  - a bit
+  - proper
+  - right then
+  us_patterns:
+  - real quick
+  - go ahead
+  - kinda
+  - sorta
+  - like
+  aus_nz_patterns:
+  - mate
+  - chuck
+  - heaps
+  - fair dinkum
+  - no worries
+  fillers:
+  - um
+  - uh
+  - er
+  - like
+  - you know
+  - sort of
+  - kind of
+meta:
+  generated_patterns: 11
+  total_variations: 227
+  supported_regions:
+  - uk
+  - us
+  - aus_nz
+  - casual
+  - formal
+  update_frequency: weekly_or_as_needed
