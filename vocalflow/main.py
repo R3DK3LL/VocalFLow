@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-VocalFlow - Universal Voice Dictation System
-Cross-platform voice-to-text with adaptive learning
+VocalFlow - Universal Voice Dictation System with Enhanced Command Processing
+Cross-platform voice-to-text with adaptive learning and linguistic command integration
 
 Author: VocalFlow Team
 License: MIT
-Version: 1.0.0
+Version: 1.1.0 (Enhanced Integration)
 """
 
 import numpy as np
@@ -37,6 +37,16 @@ try:
     import pyperclip
 except ImportError:
     pyperclip = None
+
+# Enhanced Command Integration - Import linguistic components
+try:
+    from linguistic_bridge import LinguisticBridge
+    from enhanced_agents import EnhancedVocalFlowAgent
+    ENHANCED_COMMANDS_AVAILABLE = True
+    print("Enhanced command processing available")
+except ImportError as e:
+    print(f"Enhanced commands not available: {e}")
+    ENHANCED_COMMANDS_AVAILABLE = False
 
 # Platform detection
 IS_WINDOWS = platform.system() == "Windows"
@@ -550,13 +560,14 @@ class TranscriptionEngine:
             return []
 
 class VocalFlowSystem:
-    """Main VocalFlow dictation system"""
+    """Main VocalFlow dictation system with enhanced command processing"""
     
     def __init__(self, 
                  profile_name: str = "default",
                  audio_config: Optional[AudioConfig] = None,
                  transcription_config: Optional[TranscriptionConfig] = None,
-                 output_config: Optional[OutputConfig] = None):
+                 output_config: Optional[OutputConfig] = None,
+                 enable_commands: bool = True):
         
         # Initialize logging first
         self.logger = logging.getLogger('vocalflow.system')
@@ -576,6 +587,26 @@ class VocalFlowSystem:
         self.transcription_engine = TranscriptionEngine(self.transcription_config)
         self.output_handler = CrossPlatformOutput(self.output_config)
         self.filter = SmartFilter(self.learner)
+        
+        # ENHANCED: Initialize command processing components
+        self.enable_commands = enable_commands and ENHANCED_COMMANDS_AVAILABLE
+        self.linguistic_bridge = None
+        self.command_agent = None
+        
+        if self.enable_commands:
+            try:
+                self.linguistic_bridge = LinguisticBridge()
+                self.command_agent = EnhancedVocalFlowAgent()
+                self.logger.info("Enhanced command processing enabled")
+                print("🎯 Enhanced command processing: ENABLED")
+                if hasattr(self.linguistic_bridge, 'get_status'):
+                    status = self.linguistic_bridge.get_status()
+                    self.logger.info(f"Linguistic status: {status}")
+            except Exception as e:
+                self.logger.warning(f"Could not enable enhanced commands: {e}")
+                self.enable_commands = False
+        else:
+            self.logger.info("Enhanced command processing disabled")
         
         self.is_running = False
         self.processing_thread: Optional[threading.Thread] = None
@@ -729,7 +760,7 @@ class VocalFlowSystem:
         self.logger.debug("Audio processing thread stopped")
         
     def _process_audio_buffer(self, audio_buffer: np.ndarray):
-        """Process accumulated audio buffer for transcription"""
+        """Process accumulated audio buffer for transcription - WITH ENHANCED COMMAND INTEGRATION"""
         try:
             # Transcribe audio
             texts = self.transcription_engine.transcribe_audio(audio_buffer)
@@ -741,6 +772,31 @@ class VocalFlowSystem:
                     # Apply learned corrections
                     corrected_text = self.filter.apply_corrections(text)
                     
+                    # ENHANCED: Check for commands BEFORE formatting as dictation text
+                    if self.enable_commands and self.linguistic_bridge and self.command_agent:
+                        is_command, command_type, metadata = self.linguistic_bridge.process_command(corrected_text)
+                        
+                        if is_command:
+                            # Process as command
+                            self.logger.info(f"Command detected: '{command_type}' from text: '{corrected_text}'")
+                            confidence = metadata.get('confidence', 0)
+                            method = metadata.get('method', 'unknown')
+                            print(f"🎯 Command: {command_type} (confidence: {confidence:.2f}, method: {method})")
+                            
+                            # Execute command using enhanced agent
+                            try:
+                                success = self.command_agent.process_text_enhanced(corrected_text)
+                                if success:
+                                    self.logger.info(f"Command '{command_type}' executed successfully")
+                                else:
+                                    self.logger.warning(f"Command '{command_type}' execution failed")
+                            except Exception as cmd_error:
+                                self.logger.error(f"Command execution error: {cmd_error}")
+                            
+                            # Don't process as dictation text if it was a command
+                            continue
+                    
+                    # If not a command, process as regular dictation text
                     # Format text
                     formatted_text = self._format_text(corrected_text)
                     
@@ -774,17 +830,34 @@ class VocalFlowSystem:
                 text += '.'
                 
         return text
+    
+    def get_command_status(self) -> Dict[str, Any]:
+        """Get enhanced command processing status"""
+        base_status = {
+            'commands_enabled': self.enable_commands,
+            'commands_available': ENHANCED_COMMANDS_AVAILABLE
+        }
+        
+        if self.enable_commands and self.linguistic_bridge:
+            if hasattr(self.linguistic_bridge, 'get_status'):
+                base_status.update(self.linguistic_bridge.get_status())
+            if self.command_agent and hasattr(self.command_agent, 'get_status'):
+                base_status['agent_status'] = self.command_agent.get_status()
+        
+        return base_status
 
 def create_argument_parser() -> argparse.ArgumentParser:
     """Create command line argument parser"""
     parser = argparse.ArgumentParser(
-        description="VocalFlow - Universal Voice Dictation System",
+        description="VocalFlow - Universal Voice Dictation System with Enhanced Commands",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
   python -m vocalflow.main --profile john
   python -m vocalflow.main --output clipboard --verbose
   python -m vocalflow.main --model small --language es
+  python -m vocalflow.main --enable-commands  # Enable voice commands
+  python -m vocalflow.main --disable-commands # Disable voice commands
         """
     )
     
@@ -833,6 +906,25 @@ Examples:
     )
     
     parser.add_argument(
+        "--enable-commands",
+        action="store_true",
+        default=True,
+        help="Enable enhanced voice command processing (default: enabled)"
+    )
+    
+    parser.add_argument(
+        "--disable-commands",
+        action="store_true",
+        help="Disable enhanced voice command processing"
+    )
+    
+    parser.add_argument(
+        "--command-status",
+        action="store_true",
+        help="Show command processing status and exit"
+    )
+    
+    parser.add_argument(
         "--verbose", "-v",
         action="store_true",
         help="Enable verbose logging"
@@ -874,6 +966,24 @@ def main():
             print("No voice profiles found.")
         return 0
     
+    # Handle command enable/disable flags
+    enable_commands = args.enable_commands and not args.disable_commands
+    
+    if args.command_status:
+        print("Enhanced Command Processing Status:")
+        print(f"  Available: {ENHANCED_COMMANDS_AVAILABLE}")
+        if ENHANCED_COMMANDS_AVAILABLE:
+            try:
+                bridge = LinguisticBridge()
+                agent = EnhancedVocalFlowAgent()
+                print(f"  Bridge Status: {bridge.get_status()}")
+                print(f"  Agent Status: {agent.get_status()}")
+            except Exception as e:
+                print(f"  Error: {e}")
+        else:
+            print("  Reason: Enhanced components not found")
+        return 0
+    
     # Create configurations
     audio_config = AudioConfig()
     if args.audio_device is not None:
@@ -897,7 +1007,8 @@ def main():
             profile_name=args.profile,
             audio_config=audio_config,
             transcription_config=transcription_config,
-            output_config=output_config
+            output_config=output_config,
+            enable_commands=enable_commands
         )
         
         system.start()
@@ -905,14 +1016,30 @@ def main():
         # Print startup information
         print("\n" + "="*60)
         print("🎙️  VocalFlow - Universal Voice Dictation System")
+        if enable_commands and ENHANCED_COMMANDS_AVAILABLE:
+            print("🎯 Enhanced Command Processing: ENABLED")
         print("="*60)
         print(f"Profile: {args.profile}")
         print(f"Model: {args.model}")
         print(f"Language: {args.language}")
         print(f"Output: {args.output}")
+        
+        if enable_commands and ENHANCED_COMMANDS_AVAILABLE:
+            command_status = system.get_command_status()
+            print(f"Commands: {command_status.get('enhanced_enabled', False)}")
+            print("-"*60)
+            print("Available voice commands:")
+            print("  • 'open browser' - Launch web browser")
+            print("  • 'take screenshot' - Capture screen")
+            print("  • 'volume up/down' - Control system volume")
+            print("  • 'open terminal' - Launch terminal")
+            print("  • Plus 227+ variations for natural speech!")
+        
         print("-"*60)
         print("System is listening and learning...")
-        print("Speak naturally - transcribed text will appear automatically")
+        print("Speak naturally - text will appear automatically")
+        if enable_commands and ENHANCED_COMMANDS_AVAILABLE:
+            print("Voice commands will be executed when detected")
         print("The system adapts to your voice patterns over time")
         print("Press Ctrl+C to stop")
         print("="*60 + "\n")
