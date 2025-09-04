@@ -92,8 +92,8 @@ class VoiceProfile:
     """Adaptive voice profile that learns from each user"""
     name: str = "default"
     background_noise: float = 0.005
-    speech_threshold: float = 0.003
-    avg_pause_length: float = 0.8
+    speech_threshold: float = 0.008
+    avg_pause_length: float = 1.5
     avg_speech_volume: float = 0.1
     total_words: int = 0
     total_sessions: int = 0
@@ -313,7 +313,7 @@ class AdaptiveLearner:
                 self.profile.avg_speech_volume = float(np.mean(volumes))
                 self.profile.background_noise = float(np.percentile(volumes, 20))
                 self.profile.speech_threshold = max(
-                    self.profile.background_noise * 2.5, 0.003
+                    self.profile.background_noise * 2.0, 0.003
                 )
                 
             # Update pause timing
