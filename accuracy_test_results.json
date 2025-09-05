@@ -1,0 +1,430 @@
+{
+  "variations": {
+    "browser_operations": {
+      "correct": 8,
+      "total": 8,
+      "accuracy": 1.0
+    },
+    "volume_control": {
+      "correct": 8,
+      "total": 8,
+      "accuracy": 1.0
+    },
+    "screenshot": {
+      "correct": 7,
+      "total": 7,
+      "accuracy": 1.0
+    },
+    "terminal_operations": {
+      "correct": 5,
+      "total": 6,
+      "accuracy": 0.8333333333333334
+    }
+  },
+  "false_positives": {
+    "false_positives": 2,
+    "total_tests": 13,
+    "rate": 0.15384615384615385
+  },
+  "confidence": {
+    "high_avg": 1.0,
+    "medium_avg": 1.0,
+    "differentiation": false
+  },
+  "edge_cases": [
+    {
+      "text": "browser",
+      "recognized": true,
+      "command_type": "open_browser",
+      "confidence": 1.0,
+      "method": "enhanced"
+    },
+    {
+      "text": "screenshot",
+      "recognized": true,
+      "command_type": "screenshot",
+      "confidence": 1.0,
+      "method": "enhanced"
+    },
+    {
+      "text": "volume",
+      "recognized": false,
+      "command_type": "",
+      "confidence": 0,
+      "method": "none"
+    },
+    {
+      "text": "uh, open browser please",
+      "recognized": true,
+      "command_type": "open_browser",
+      "confidence": 1.0,
+      "method": "enhanced"
+    },
+    {
+      "text": "um, take a screenshot now",
+      "recognized": true,
+      "command_type": "screenshot",
+      "confidence": 1.0,
+      "method": "enhanced"
+    },
+    {
+      "text": "well, volume up I guess",
+      "recognized": true,
+      "command_type": "volume_control",
+      "confidence": 1.0,
+      "method": "enhanced"
+    },
+    {
+      "text": "OPEN BROWSER!",
+      "recognized": true,
+      "command_type": "browser_operations",
+      "confidence": 0.8,
+      "method": "fallback"
+    },
+    {
+      "text": "Take Screenshot?",
+      "recognized": true,
+      "command_type": "screenshot",
+      "confidence": 0.8,
+      "method": "fallback"
+    },
+    {
+      "text": "volume up...",
+      "recognized": true,
+      "command_type": "volume_control",
+      "confidence": 0.8,
+      "method": "fallback"
+    },
+    {
+      "text": "open the door",
+      "recognized": false,
+      "command_type": "",
+      "confidence": 0,
+      "method": "none"
+    },
+    {
+      "text": "take a break",
+      "recognized": false,
+      "command_type": "",
+      "confidence": 0,
+      "method": "none"
+    },
+    {
+      "text": "volume of water",
+      "recognized": false,
+      "command_type": "",
+      "confidence": 0,
+      "method": "none"
+    }
+  ],
+  "detailed_results": {
+    "command_recognition": [
+      {
+        "text": "open browser",
+        "expected_category": "browser_operations",
+        "recognized": true,
+        "actual_type": "open_browser",
+        "confidence": 1.0,
+        "method": "enhanced",
+        "correct": true
+      },
+      {
+        "text": "launch browser",
+        "expected_category": "browser_operations",
+        "recognized": true,
+        "actual_type": "open_browser",
+        "confidence": 1.0,
+        "method": "enhanced",
+        "correct": true
+      },
+      {
+        "text": "fire up browser",
+        "expected_category": "browser_operations",
+        "recognized": true,
+        "actual_type": "open_browser",
+        "confidence": 1.0,
+        "method": "enhanced",
+        "correct": true
+      },
+      {
+        "text": "start browser",
+        "expected_category": "browser_operations",
+        "recognized": true,
+        "actual_type": "open_browser",
+        "confidence": 1.0,
+        "method": "enhanced",
+        "correct": true
+      },
+      {
+        "text": "bring up browser",
+        "expected_category": "browser_operations",
+        "recognized": true,
+        "actual_type": "open_browser",
+        "confidence": 1.0,
+        "method": "enhanced",
+        "correct": true
+      },
+      {
+        "text": "open the browser please",
+        "expected_category": "browser_operations",
+        "recognized": true,
+        "actual_type": "open_browser",
+        "confidence": 1.0,
+        "method": "enhanced",
+        "correct": true
+      },
+      {
+        "text": "could you open browser",
+        "expected_category": "browser_operations",
+        "recognized": true,
+        "actual_type": "open_browser",
+        "confidence": 1.0,
+        "method": "enhanced",
+        "correct": true
+      },
+      {
+        "text": "launch web browser",
+        "expected_category": "browser_operations",
+        "recognized": true,
+        "actual_type": "open_browser",
+        "confidence": 1.0,
+        "method": "enhanced",
+        "correct": true
+      },
+      {
+        "text": "volume up",
+        "expected_category": "volume_control",
+        "recognized": true,
+        "actual_type": "volume_control",
+        "confidence": 1.0,
+        "method": "enhanced",
+        "correct": true
+      },
+      {
+        "text": "increase volume",
+        "expected_category": "volume_control",
+        "recognized": true,
+        "actual_type": "volume_control",
+        "confidence": 0.8,
+        "method": "fallback",
+        "correct": true
+      },
+      {
+        "text": "louder",
+        "expected_category": "volume_control",
+        "recognized": true,
+        "actual_type": "volume_control",
+        "confidence": 1.0,
+        "method": "enhanced",
+        "correct": true
+      },
+      {
+        "text": "turn up volume",
+        "expected_category": "volume_control",
+        "recognized": true,
+        "actual_type": "volume_control",
+        "confidence": 1.0,
+        "method": "enhanced",
+        "correct": true
+      },
+      {
+        "text": "boost volume",
+        "expected_category": "volume_control",
+        "recognized": true,
+        "actual_type": "volume_control",
+        "confidence": 1.0,
+        "method": "enhanced",
+        "correct": true
+      },
+      {
+        "text": "volume higher",
+        "expected_category": "volume_control",
+        "recognized": true,
+        "actual_type": "volume_control",
+        "confidence": 1.0,
+        "method": "enhanced",
+        "correct": true
+      },
+      {
+        "text": "make it louder",
+        "expected_category": "volume_control",
+        "recognized": true,
+        "actual_type": "volume_control",
+        "confidence": 1.0,
+        "method": "enhanced",
+        "correct": true
+      },
+      {
+        "text": "crank up volume",
+        "expected_category": "volume_control",
+        "recognized": true,
+        "actual_type": "volume_control",
+        "confidence": 1.0,
+        "method": "enhanced",
+        "correct": true
+      },
+      {
+        "text": "take screenshot",
+        "expected_category": "screenshot",
+        "recognized": true,
+        "actual_type": "screenshot",
+        "confidence": 1.0,
+        "method": "enhanced",
+        "correct": true
+      },
+      {
+        "text": "capture screen",
+        "expected_category": "screenshot",
+        "recognized": true,
+        "actual_type": "screenshot",
+        "confidence": 1.0,
+        "method": "enhanced",
+        "correct": true
+      },
+      {
+        "text": "screenshot",
+        "expected_category": "screenshot",
+        "recognized": true,
+        "actual_type": "screenshot",
+        "confidence": 1.0,
+        "method": "enhanced",
+        "correct": true
+      },
+      {
+        "text": "snap screen",
+        "expected_category": "screenshot",
+        "recognized": true,
+        "actual_type": "screenshot",
+        "confidence": 1.0,
+        "method": "enhanced",
+        "correct": true
+      },
+      {
+        "text": "grab screenshot",
+        "expected_category": "screenshot",
+        "recognized": true,
+        "actual_type": "screenshot",
+        "confidence": 1.0,
+        "method": "enhanced",
+        "correct": true
+      },
+      {
+        "text": "screen capture",
+        "expected_category": "screenshot",
+        "recognized": true,
+        "actual_type": "screenshot",
+        "confidence": 1.0,
+        "method": "enhanced",
+        "correct": true
+      },
+      {
+        "text": "take picture of screen",
+        "expected_category": "screenshot",
+        "recognized": true,
+        "actual_type": "screenshot",
+        "confidence": 1.0,
+        "method": "enhanced",
+        "correct": true
+      },
+      {
+        "text": "open terminal",
+        "expected_category": "terminal_operations",
+        "recognized": true,
+        "actual_type": "terminal_operations",
+        "confidence": 0.8,
+        "method": "fallback",
+        "correct": true
+      },
+      {
+        "text": "launch terminal",
+        "expected_category": "terminal_operations",
+        "recognized": true,
+        "actual_type": "terminal_operations",
+        "confidence": 0.8,
+        "method": "fallback",
+        "correct": true
+      },
+      {
+        "text": "start terminal",
+        "expected_category": "terminal_operations",
+        "recognized": true,
+        "actual_type": "terminal_operations",
+        "confidence": 0.8,
+        "method": "fallback",
+        "correct": true
+      },
+      {
+        "text": "bring up terminal",
+        "expected_category": "terminal_operations",
+        "recognized": true,
+        "actual_type": "terminal_operations",
+        "confidence": 0.8,
+        "method": "fallback",
+        "correct": true
+      },
+      {
+        "text": "fire up terminal",
+        "expected_category": "terminal_operations",
+        "recognized": true,
+        "actual_type": "terminal_operations",
+        "confidence": 0.8,
+        "method": "fallback",
+        "correct": true
+      },
+      {
+        "text": "open command line",
+        "expected_category": "terminal_operations",
+        "recognized": false,
+        "actual_type": "",
+        "confidence": 0,
+        "method": "none",
+        "correct": false
+      }
+    ],
+    "false_positives": [
+      {
+        "text": "The browser crashed yesterday.",
+        "command_type": "open_browser",
+        "confidence": 1.0
+      },
+      {
+        "text": "I took a screenshot of the error.",
+        "command_type": "screenshot",
+        "confidence": 1.0
+      }
+    ],
+    "confidence_scores": [
+      {
+        "text": "open browser",
+        "confidence": 1.0,
+        "expected": "high"
+      },
+      {
+        "text": "take screenshot",
+        "confidence": 1.0,
+        "expected": "high"
+      },
+      {
+        "text": "volume up",
+        "confidence": 1.0,
+        "expected": "high"
+      },
+      {
+        "text": "could you possibly open the browser please",
+        "confidence": 1.0,
+        "expected": "medium"
+      },
+      {
+        "text": "maybe take a screenshot if you can",
+        "confidence": 1.0,
+        "expected": "medium"
+      },
+      {
+        "text": "turn the volume up a bit",
+        "confidence": 1.0,
+        "expected": "medium"
+      }
+    ],
+    "variation_coverage": {}
+  }
+}

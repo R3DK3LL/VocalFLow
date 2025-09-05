@@ -8,3 +8,9 @@ venv/
 .DS_Store
 .vscode/
 *.swp
+backup/
+venv/
+__pycache__/
+*.pyc
+.env
+*.log
