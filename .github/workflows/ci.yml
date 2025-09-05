@@ -30,13 +30,13 @@ jobs:
     
     - name: Security scan
       run: |
-        bandit -r . -ll || true
+        bandit -r . -ll --exclude=./venv || true
         safety check || true
     
     - name: Code quality
       run: |
-        black --check . || echo "Run 'black .' to fix formatting"
-        flake8 . || true
+        black --check --exclude=venv . || echo "Run 'black .' to fix formatting"
+        flake8 . --exclude=venv || true
     
     - name: Tests
       run: |
