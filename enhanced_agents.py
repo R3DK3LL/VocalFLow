@@ -9,12 +9,9 @@ import sys
 import os
 import time
 import re
-import json
 import subprocess
-import threading
 from datetime import datetime
-from pathlib import Path
-from typing import Dict, Any, Optional, List, Tuple, Callable
+from typing import Dict, Any, Optional, List, Tuple
 from collections import defaultdict, Counter, deque
 from dataclasses import dataclass, asdict
 import logging
@@ -701,7 +698,7 @@ class EnhancedVocalFlowAgent:
                 )
                 print("Volume increased (amixer)")
                 return True
-            except:
+            except Exception as e:
                 print("Could not control volume")
                 return False
 
@@ -722,7 +719,7 @@ class EnhancedVocalFlowAgent:
                 )
                 print("Volume decreased (amixer)")
                 return True
-            except:
+            except Exception as e:
                 print("Could not control volume")
                 return False
 
@@ -745,7 +742,7 @@ class EnhancedVocalFlowAgent:
                 )
                 print("Volume muted/unmuted (amixer)")
                 return True
-            except:
+            except Exception as e:
                 print("Could not mute volume")
                 return False
 
@@ -1012,7 +1009,7 @@ def test_enhanced_agent():
         result = agent.process_transcription_complete(cmd)
 
         if result["command_executed"]:
-            print(f"  Command executed successfully")
+            print("  Command executed successfully")
         elif result["completion"]:
             print(f"  Auto-completion: {result['completion']}")
         else:
@@ -1059,7 +1056,7 @@ class VocalFlowAgentSystem:
 
         # Print session summary
         status = self.agent.get_system_status()
-        print(f"\nSession Summary:")
+        print("\nSession Summary:")
         print(f"Context: {status['current_context']}")
         print(f"Duration: {status['session_summary']['duration_minutes']:.1f} minutes")
         print(f"Commands executed: {status['command_history_size']}")

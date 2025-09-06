@@ -9,7 +9,6 @@ import sys
 import yaml
 import re
 from typing import Dict, List, Optional, Tuple, Any, Set
-from pathlib import Path
 
 # Add linguistic directory to path
 sys.path.append(os.path.join(os.path.dirname(__file__), "linguistic"))
@@ -247,7 +246,7 @@ class LinguisticBridge:
         if self.enable_enhanced and self.enhanced_matcher:
             try:
                 return self.enhanced_matcher.get_variations_for_command(command_type)
-            except:
+            except Exception as e:
                 pass
 
         # Fallback variations
