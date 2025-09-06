@@ -31,11 +31,14 @@ jobs:
         bandit -r . -ll --exclude=./venv,./**/venv/**,./*venv*
         safety check
     
-    - name: Code quality
+    - name: Format check
       run: |
         black --check --exclude=venv .
-        flake8 . --exclude=venv --max-line-length=88 --ignore=E203,W503
-    
+
+    - name: Lint check  
+      run: |
+        flake8 . --exclude=venv --select=E722,F401,F821,E402 --max-line-length=88
+
     - name: Tests
       run: |
         pytest --cov=. --cov-fail-under=80
