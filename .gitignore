@@ -62,3 +62,4 @@ virtualenv/
 # Virtual environments (comprehensive patterns)
 .vscode/
 wheels/
+local_files/
