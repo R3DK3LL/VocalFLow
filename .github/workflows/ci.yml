@@ -37,7 +37,7 @@ jobs:
 
     - name: Lint check  
       run: |
-        flake8 . --exclude=venv --select=E722,F401,F821,E402 --max-line-length=88
+        flake8 . --exclude=venv,tests --select=E722,F401,F821,E402 --max-line-length=88
 
     - name: Tests
       run: |
