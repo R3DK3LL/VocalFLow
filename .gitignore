@@ -1,8 +1,20 @@
 
+*~
 *$py.class
 algo-testing/venv/
+*.backup
+*_backup_*
+backup/
+# Backup files and directories
+*backup*.json
+*backup*.md
+*backup*.py
+backups/
+*backup*.txt
+*.bak
 build/
 # Build artifacts
+*copy*
 develop-eggs/
 dist/
 downloads/
@@ -23,6 +35,8 @@ lib64/
 *.log
 logs/
 # Logs
+*.old
+*.orig
 # OS
 parts/
 __pycache__/
@@ -31,11 +45,13 @@ __pycache__/
 pyenv/
 # Python
 .Python
+requirements.txt.backup
 sdist/
 *.so
 *.swo
 *.swp
 Thumbs.db
+*.tmp
 var/
 **/venv/
 */venv/
