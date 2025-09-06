@@ -1,28 +1,48 @@
-# Python
-__pycache__/
-*.py[cod]
-*.so
-.env
-venv/
-env/
-.venv/
 
-# IDEs
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# OS
+*$py.class
+algo-testing/venv/
+build/
+# Build artifacts
+develop-eggs/
+dist/
+downloads/
 .DS_Store
-Thumbs.db
-
-# Logs
+*.egg
+*.egg-info/
+.eggs/
+eggs/
+.env
+.env/
+env/
+ENV/
+.idea/
+# IDEs
+.installed.cfg
+lib/
+lib64/
 *.log
 logs/
-
-# Build artifacts
-build/
-dist/
-*.egg-info/
+# Logs
+# OS
+parts/
+__pycache__/
+*.py[cod]
+.pyenv/
+pyenv/
+# Python
+.Python
+sdist/
+*.so
+*.swo
+*.swp
+Thumbs.db
+var/
+**/venv/
+*/venv/
+.venv/
 venv/
+.virtualenv/
+virtualenv/
+# Virtual environments (comprehensive patterns)
+.vscode/
+wheels/

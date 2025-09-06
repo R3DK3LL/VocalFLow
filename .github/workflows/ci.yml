@@ -28,7 +28,7 @@ jobs:
     
     - name: Security scan
       run: |
-        bandit -r . -ll --exclude=./venv
+        bandit -r . -ll --exclude=./venv,./**/venv/**,./*venv*
         safety check
     
     - name: Code quality
