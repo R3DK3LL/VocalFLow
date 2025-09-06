@@ -1,11 +1,9 @@
 name: Production CI Pipeline
-
 on:
   push:
     branches: [ main, master, develop ]
   pull_request:
     branches: [ main, master ]
-
 jobs:
   quality-gate:
     runs-on: ubuntu-latest
@@ -30,14 +28,14 @@ jobs:
     
     - name: Security scan
       run: |
-        bandit -r . -ll --exclude=./venv || true
-        safety check || true
+        bandit -r . -ll --exclude=./venv
+        safety check
     
     - name: Code quality
       run: |
-        black --check --exclude=venv . || echo "Run 'black .' to fix formatting"
-        flake8 . --exclude=venv || true
+        black --check --exclude=venv .
+        flake8 . --exclude=venv
     
     - name: Tests
       run: |
-        pytest --cov=. --cov-fail-under=80 || echo "Add tests to pass coverage"
+        pytest --cov=. --cov-fail-under=80
