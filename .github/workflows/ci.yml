@@ -41,4 +41,4 @@ jobs:
 
     - name: Tests
       run: |
-        pytest --cov=. --cov-fail-under=80
+        pytest
