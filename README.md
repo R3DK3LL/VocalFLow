@@ -417,3 +417,4 @@ MIT License - see [LICENSE](LICENSE) file for details.
     <a href="https://github.com/R3DK3LL/VocalFlow/discussions">Discussions</a>
   </p>
 </div></content>
+# CI configuration updated
