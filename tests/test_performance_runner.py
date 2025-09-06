@@ -7,8 +7,7 @@ import sys
 import os
 import time
 import psutil
-import threading
-from typing import Dict, List, Any
+from typing import Dict, Any
 
 # Add parent directory to path for imports
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -43,8 +42,8 @@ class PerformanceTestRunner:
             enable_workflow=True,
         )
 
-        agent = EnhancedVocalFlowAgent(config)
-        bridge = LinguisticBridge()
+        EnhancedVocalFlowAgent(config)
+        LinguisticBridge()
 
         initialization_time = time.time() - start_time
         self.results["initialization_time"] = initialization_time
@@ -77,7 +76,7 @@ class PerformanceTestRunner:
             start_time = time.time()
 
             # Test complete processing pipeline
-            result = agent.process_transcription_complete(command)
+            agent.process_transcription_complete(command)
 
             processing_time = time.time() - start_time
             processing_times[command] = processing_time

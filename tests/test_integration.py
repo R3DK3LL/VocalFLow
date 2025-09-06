@@ -5,16 +5,14 @@ Tests the complete pipeline and component interactions
 """
 import sys
 import os
-import time
 import subprocess
-import tempfile
-from typing import Dict, List, Any, Optional
+from typing import Dict, Any
 from pathlib import Path
 
 # Add parent directory to path for imports
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from enhanced_agents import EnhancedVocalFlowAgent, AgentConfig
+from enhanced_agents import EnhancedVocalFlowAgent
 from linguistic_bridge import LinguisticBridge
 
 

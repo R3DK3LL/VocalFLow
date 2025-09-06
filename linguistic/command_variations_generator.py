@@ -7,7 +7,7 @@ Outputs to YAML for dynamic regex pattern updates
 
 import yaml
 import re
-from typing import Dict, List, Set
+from typing import Dict, List
 from pathlib import Path
 
 
@@ -342,7 +342,6 @@ class CommandVariationsGenerator:
 
         for category, data in self.variations.items():
             category_patterns = {}
-            category_regex = []
 
             for command_type, variations in data["patterns"].items():
                 all_variations = []
@@ -560,7 +559,7 @@ def main():
     generator = CommandVariationsGenerator()
 
     # Generate and export YAML
-    yaml_file = generator.export_to_yaml()
+    generator.export_to_yaml()
 
     # Generate integration code
     integration_code = generator.generate_agent_integration_code()

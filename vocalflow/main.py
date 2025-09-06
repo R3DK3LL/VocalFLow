@@ -13,7 +13,6 @@ import sounddevice as sd
 import subprocess
 import platform
 import sys
-import os
 import json
 import time
 import logging
@@ -21,7 +20,7 @@ import argparse
 import signal
 from pathlib import Path
 from dataclasses import dataclass, asdict
-from typing import Optional, List, Dict, Any, Tuple
+from typing import Optional, List, Dict, Any
 import re
 import queue
 import threading
@@ -735,7 +734,7 @@ class VocalFlowSystem:
         buffer = np.array([], dtype=np.float32).reshape(0, 1)
         has_speech = False
         silence_start = None
-        last_process_time = time.time()
+        time.time()
 
         self.logger.debug("Audio processing thread started")
 
@@ -790,7 +789,6 @@ class VocalFlowSystem:
                         buffer = np.array([], dtype=np.float32).reshape(0, 1)
                         has_speech = False
                         silence_start = None
-                        last_process_time = current_time
 
                 # Prevent buffer overflow
                 max_buffer_length = self.audio_config.samplerate * 10  # 10 seconds max

@@ -11,7 +11,7 @@ import psutil
 # Add parent directory to path for imports
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from enhanced_agents import EnhancedVocalFlowAgent, AgentConfig
+from enhanced_agents import EnhancedVocalFlowAgent
 
 
 def test_initialization_time():
@@ -118,7 +118,7 @@ def main():
         print()
 
         # Test status
-        status = test_status_check(agent)
+        test_status_check(agent)
         print()
 
         # Summary

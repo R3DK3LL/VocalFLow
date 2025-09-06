@@ -5,7 +5,7 @@ Tests command recognition reliability, false positives, and confidence scoring
 """
 import sys
 import os
-from typing import Dict, List, Tuple, Any
+from typing import Dict, Any
 
 # Add parent directory to path for imports
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

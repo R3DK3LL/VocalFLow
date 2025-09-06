@@ -7,15 +7,13 @@ import sys
 import os
 import time
 import tempfile
-import shutil
-from typing import Dict, List, Any, Optional
+from typing import Dict, Any
 from pathlib import Path
 
 # Add parent directory to path for imports
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from enhanced_agents import EnhancedVocalFlowAgent, AgentConfig
-from linguistic_bridge import LinguisticBridge
+from enhanced_agents import EnhancedVocalFlowAgent
 
 
 class RobustnessTestRunner:
@@ -227,7 +225,7 @@ class RobustnessTestRunner:
             rapid_calls = 10  # Keep this small
 
             for i in range(rapid_calls):
-                result = agent.process_text_enhanced(f"test command {i}")
+                agent.process_text_enhanced(f"test command {i}")
 
             total_time = time.time() - start_time
             avg_time = total_time / rapid_calls
@@ -266,7 +264,7 @@ class RobustnessTestRunner:
             all_work = True
             for i, agent_instance in enumerate(agents):
                 try:
-                    result = agent_instance.process_text_enhanced("test command")
+                    agent_instance.process_text_enhanced("test command")
                 except Exception:
                     all_work = False
                     break

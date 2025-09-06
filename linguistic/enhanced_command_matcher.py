@@ -1,7 +1,7 @@
 # Auto-generated command variations integration for agents.py
 import yaml
 import re
-from typing import Dict, List, Optional
+from typing import Dict, Optional
 
 
 class EnhancedCommandMatcher:
