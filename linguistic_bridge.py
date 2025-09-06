@@ -210,7 +210,7 @@ class LinguisticBridge:
                 categories[category] = variations
 
             return categories
-        except Exception:
+        except Exception as e:
             return {}
 
     def _extract_yaml_keywords(self, variations: List[str]) -> Set[str]:

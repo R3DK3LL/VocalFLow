@@ -663,7 +663,7 @@ class EnhancedVocalFlowAgent:
                 ["which", executable], capture_output=True, text=True
             )
             return result.returncode == 0
-        except Exception:
+        except Exception as e:
             return False
 
     def _handle_volume_command(self, text: str) -> bool:
@@ -783,7 +783,7 @@ class EnhancedVocalFlowAgent:
                 subprocess.Popen([executable])
                 print(f"Opened {executable}")
                 return True
-            except Exception:
+            except Exception as e:
                 pass
 
         print("No terminal found")
@@ -801,7 +801,7 @@ class EnhancedVocalFlowAgent:
                 [app_name], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
             )
             return True
-        except Exception:
+        except Exception as e:
             return False
 
     # Additional command methods from agents.py
